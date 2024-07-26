@@ -8,7 +8,7 @@ void merge(int arr[], int l, int m, int r)
     int n1 = m - l + 1;
     int n2 = r - m;
     int L[n1], R[n2];
-    
+
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (j = 0; j < n2; j++)
@@ -59,6 +59,7 @@ int main()
     time_t start, end;
     printf("enter the number of elements\n");
     scanf("%d", &n);
+    printf("The elements are\n");
     for (i = 0; i < n; i++)
     {
         a[i] = rand();
@@ -73,6 +74,6 @@ int main()
         printf("%d\t", a[i]);
     }
     double tc = (difftime(end, start) / CLOCKS_PER_SEC);
-    printf("\ntime taken is %f", tc);
+    printf("\ntime taken is %f\n", tc);
     return 0;
 }

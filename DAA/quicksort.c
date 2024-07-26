@@ -58,6 +58,6 @@ int main()
         printf("%d\t", a[i]);
     }
     double tc = (difftime(end, start) / CLOCKS_PER_SEC);
-    printf("\ntime taken is %f", tc);
+    printf("\ntime taken is %f\n", tc);
     return 0;
 }
