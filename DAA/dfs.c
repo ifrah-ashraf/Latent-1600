@@ -1,3 +1,4 @@
+/* DFS program */
 #include <stdio.h>
 
 int a[20][20], reach[20], n;
