@@ -48,6 +48,6 @@ int main()
 	}
 	avg_tat=(float)total/n;
 	printf("\n\n Average waiting time : %f",avg_wt);
-	printf("\n Average turnaround time :%f",avg_tat);
+	printf("\n Average turnaround time\n :%f",avg_tat);
 	return 0;
 }
