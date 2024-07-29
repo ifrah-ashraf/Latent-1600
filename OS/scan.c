@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include <stdlib.h>
-
 int main()
 {
             int queue[20],n,head,i,j,k,seek=0,max,diff,temp,queue1[20],queue2[20],

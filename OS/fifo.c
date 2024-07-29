@@ -22,6 +22,7 @@ int main()
 
         for(n = 0; n < frames; n++)
         {
+            //check the condition for page hit
             if(incomingStream[m] == temp[n])
             {
                 s++;
@@ -30,10 +31,13 @@ int main()
         }
         pageFaults++;
         
+        //add the page into empty frame 
         if((pageFaults <= frames) && (s == 0))
         {
             temp[m] = incomingStream[m];
         }
+
+        //replace the page using fifo 
         else if(s == 0)
         {
             temp[(pageFaults - 1) % frames] = incomingStream[m];
