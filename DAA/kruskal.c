@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+// Comparator function for qsort
 int comparator(const void *p1, const void *p2)
 {
     const int(*x)[3] = p1;
     const int(*y)[3] = p2;
     return (*x)[2] - (*y)[2];
 }
+
+// Initialize sets for union-find
 void makeSet(int parent[], int rank[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -14,30 +18,38 @@ void makeSet(int parent[], int rank[], int n)
         rank[i] = 0;
     }
 }
+
+// Find with path compression
 int findParent(int parent[], int component)
 {
-    if (parent[component] == component)
-        return component;
-    return parent[component] = findParent(parent, parent[component]);
+    if (parent[component] != component)
+        parent[component] = findParent(parent, parent[component]);
+    return parent[component];
 }
+
+// Union by rank
 void unionSet(int u, int v, int parent[], int rank[], int n)
 {
     u = findParent(parent, u);
     v = findParent(parent, v);
-    if (rank[u] < rank[v])
-    {
-        parent[u] = v;
-    }
-    else if (rank[u] > rank[v])
-    {
-        parent[v] = u;
-    }
-    else
-    {
-        parent[v] = u;
-        rank[u]++;
+    if (u != v) {
+        if (rank[u] < rank[v])
+        {
+            parent[u] = v;
+        }
+        else if (rank[u] > rank[v])
+        {
+            parent[v] = u;
+        }
+        else
+        {
+            parent[v] = u;
+            rank[u]++;
+        }
     }
 }
+
+// Kruskal's algorithm to find MST
 void kruskalAlgo(int n, int edge[n][3])
 {
     qsort(edge, n, sizeof(edge[0]), comparator);
@@ -49,7 +61,6 @@ void kruskalAlgo(int n, int edge[n][3])
     for (int i = 0; i < n; i++)
     {
         int v1 = findParent(parent, edge[i][0]);
-
         int v2 = findParent(parent, edge[i][1]);
         int wt = edge[i][2];
         if (v1 != v2)
@@ -61,6 +72,7 @@ void kruskalAlgo(int n, int edge[n][3])
     }
     printf("Minimum Cost Spanning Tree: %d\n", minCost);
 }
+
 int main()
 {
     int edge[5][3] = {{0, 1, 10},

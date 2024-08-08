@@ -67,7 +67,7 @@ int main() {
     addDependency(4, 6);
     addDependency(5, 6);
     numNodes = 7;
-    printf("Topological order: ");
+    printf("Topological order:\n ");
     topologicalSort();
     return 0;
 }
