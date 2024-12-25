@@ -1,0 +1,18 @@
+Step 1: Create a new user:
+sudo adduser username
+
+Step 2: Login as the new user:
+su - username
+
+Step 3: Create a script to display all processes
+nano process_list.sh
+
+Step 4: Write the commands and save your script
+#!/bin/bash ps aux
+ps aux
+
+Step 5: Give your script execute-access and verify it
+chmod +x process_list.sh
+ls -l process_list.sh
+
+Step 6: Execute the script
